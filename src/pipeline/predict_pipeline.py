@@ -15,11 +15,13 @@ class PredictPipeline:
             preprocessor_path=os.path.join('artifacts','proprocessor.pkl')
             print("Before Loading")
             model=load_object(file_path=model_path)
+            print("Model loaded")
             preprocessor=load_object(file_path=preprocessor_path)
             print("After Loading")
             data_scaled=preprocessor.transform(features)
+            print("Data Transformed")
             preds=model.predict(data_scaled)
-            print("Model Prediction done")
+            print("Data Predicted")
             return preds
         
         except Exception as e:
